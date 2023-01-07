@@ -40,9 +40,6 @@ path_to_destination = {
 	
 }
 
-# folder_to_track 	= 'C:/Users/SEB/Desktop/keepTrack'
-
-
 
 def move_file(src,dst):
 	"""
@@ -59,6 +56,7 @@ def move_file(src,dst):
 		i += 1
 
 		name,ext = splitext(dst)
+		
 
 		new_name = name + " copy " + "(" + str(i) + ")" + ext
 
@@ -82,6 +80,7 @@ class MyEventHandler(FileSystemEventHandler):
 
 			source_path = folder_to_track + '/' + file
 			ext = splitext(file)[1] # get extension
+			ext = ext.lower()
 
 			#deal with files only and skip folders
 			if isfile(source_path):
